@@ -1,13 +1,5 @@
 <h1 align="center">MCP-Mem0: Long-Term Memory for AI Agents</h1>
 
-<p align="center">
-  <img src="public/Mem0AndMCP.png" alt="Mem0 and MCP Integration" width="600">
-</p>
-
-A template implementation of the [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server integrated with [Mem0](https://mem0.ai) for providing AI agents with persistent memory capabilities.
-
-Use this as a reference point to build your MCP servers yourself, or give this as an example to an AI coding assistant and tell it to follow this example for structure and code correctness!
-
 ## Overview
 
 This project demonstrates how to build an MCP server that enables AI agents to store, retrieve, and search memories using semantic search. It serves as a practical template for creating your own MCP servers, simply using Mem0 and a practical example.
@@ -75,10 +67,13 @@ The following environment variables can be configured in your `.env` file:
 | `HOST` | Host to bind to when using SSE transport | `0.0.0.0` |
 | `PORT` | Port to listen on when using SSE transport | `8050` |
 | `LLM_PROVIDER` | LLM provider (openai, openrouter, or ollama) | `openai` |
-| `LLM_BASE_URL` | Base URL for the LLM API | `https://api.openai.com/v1` |
-| `LLM_API_KEY` | API key for the LLM provider | `sk-...` |
-| `LLM_CHOICE` | LLM model to use | `gpt-4o-mini` |
-| `EMBEDDING_MODEL_CHOICE` | Embedding model to use | `text-embedding-3-small` |
+| `LLM_BASE_URL` | Base URL for the LLM API | `https://api.openai.com/v1`, `https://api.groq.com/openai/v1`, `http://localhost:11434/v1` |
+| `LLM_API_KEY` | API key for the LLM provider | `sk-...`, `gsk-...` |
+| `LLM_CHOICE` | LLM model to use | `gpt-4o-mini`, `deepseek-r1-distill-llama-70b` |
+| `EMBEDDING_PROVIDER` | Provider for embedding model (same as LLM provider or different) | `openai`, `ollama` |
+| `EMBEDDING_MODEL_CHOICE` | Embedding model to use | `text-embedding-3-small`, `nomic-embed-text` |
+| `EMBEDDING_API_KEY` | API key for the embedding provider (may be same as LLM API key) | `sk-...` |
+| `EMBEDDING_BASE_URL` | Base URL for the embedding API | `https://api.openai.com/v1`, `http://host.docker.internal:11434` |
 | `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@host:port/db` |
 
 ## Running the Server
