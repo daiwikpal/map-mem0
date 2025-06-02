@@ -10,9 +10,8 @@ RUN pip install uv
 # Copy the MCP server files
 COPY . .
 
-# Install packages
-RUN python -m venv .venv
-RUN uv pip install -e .
+# Install packages directly without virtual environment
+RUN uv pip install --system -e . ollama
 
 EXPOSE ${PORT}
 

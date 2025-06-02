@@ -26,7 +26,7 @@ async def mem0_lifespan(server: FastMCP) -> AsyncIterator[Mem0Context]:
     """
     Manages the Mem0 client lifecycle.
     
-    Args:
+    Args: 
         server: The FastMCP server instance
         
     Yields:
@@ -119,6 +119,7 @@ async def main():
     transport = os.getenv("TRANSPORT", "sse")
     if transport == 'sse':
         # Run the MCP server with sse transport
+        print("Running MCP server with SSE transport")
         await mcp.run_sse_async()
     else:
         # Run the MCP server with stdio transport
